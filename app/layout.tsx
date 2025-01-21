@@ -37,7 +37,7 @@ export default function RootLayout({
             sx={{
               paddingTop: {
                 xs: 0,      // No padding for extra small screens
-                sm: '64px', // Add padding for small screens and up
+                sm: '120px', // Add padding for small screens and up
               },
             }}
           >
