@@ -57,7 +57,7 @@ export default function NavBar({ window }: { window?: () => Window }) {
             variant="outlined"
             size="large" 
             color="secondary"
-            onClick={() => scrollToSection('contact-section')}
+            onClick={() => scrollToSection('contact-us-section')}
         >
             Contact Us
         </Button>
@@ -130,7 +130,7 @@ export default function NavBar({ window }: { window?: () => Window }) {
                     size="large" 
                     color="secondary"
                     sx={{ marginLeft: '1rem' }}
-                    onClick={() => scrollToSection('contact-section')}
+                    onClick={() => scrollToSection('contact-us-section')}
                 >
                     Contact Us
                 </Button>

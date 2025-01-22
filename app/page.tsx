@@ -10,7 +10,7 @@ export default function Home() {
           <section id="about-us-section" style={{ padding: '4rem', height: '100vh', backgroundColor: '#ffe0b2' }}>
             <h1>About Us</h1>
           </section>
-          <section id="contactus--section" style={{ padding: '4rem', height: '100vh', backgroundColor: '#c8e6c9' }}>
+          <section id="contact-us-section" style={{ padding: '4rem', height: '100vh', backgroundColor: '#c8e6c9' }}>
             <h1>Contact Us</h1>
           </section>
         </div>
