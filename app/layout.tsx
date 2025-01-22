@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import ThemeRegistry from './theme/ThemeRegistry';
-import { Box } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,15 +32,8 @@ export default function RootLayout({
       >
         <ThemeRegistry>
           <NavBar />
-          <Box
-            component="main"
-            sx={{
-              paddingTop: {
-                xs: 0,      // No padding for extra small screens
-                sm: '64px', // Add padding for small screens and up
-              },
-            }}
-          >
+          <Box component="main" >
+            <Toolbar />
             {children}
           </Box>
         </ThemeRegistry>

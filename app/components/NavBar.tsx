@@ -1,21 +1,25 @@
 'use client';
 
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, Menu, MenuItem } from '@mui/material';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useTheme } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import Image from 'next/image';
+import { Container } from '@mui/material';
 
-const NavBar: React.FC = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+const drawerWidth = 240;
 
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+export default function NavBar({ window }: { window?: () => Window }) {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
   };
 
   const scrollToSection = (id: string) => {
@@ -23,86 +27,134 @@ const NavBar: React.FC = () => {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
-    handleMenuClose();
   };
 
-  const menuLinks = [
-    { label: 'Home', id: 'hero-section' },
-    { label: 'About Pedal tap', id: 'about-pedal-tap-section' },
-    { label: 'About Us', id: 'about-us-section' },
-    { label: 'Contact Us', id: 'contact-us-section' },
-  ];
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      {/* Logo */}
+      <Box
+        onClick={() => scrollToSection('hero-section')}
+        sx={{
+            display: 'flex',
+            alignItems: 'center',
+            textDecoration: 'none',
+            color: 'inherit',
+            cursor: 'pointer',
+            margin: "1rem",
+            // flexGrow: 0,
+        }}
+        >
+        <Image
+            src="/images/placeholder-logo.svg" 
+            alt="ETIBuild Logo"
+            width={210} // Set appropriate width for the logo
+            height={70} // Set appropriate height for the logo
+            priority // Ensures the logo loads quickly
+        />
+        </Box>
+      <Divider sx={{ my: "1rem" }} />
+      <Button
+            variant="outlined"
+            size="large" 
+            color="secondary"
+            onClick={() => scrollToSection('contact-section')}
+        >
+            Contact Us
+        </Button>
+    </Box>
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <AppBar position="fixed" color="primary" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
-      <Toolbar>
-        {/* Logo */}
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
-          onClick={() => scrollToSection('hero-section')}
-        >
-          ETIBuild
-        </Typography>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar 
+        position="fixed" 
+        color="primary" 
+        component="nav"
+        sx={{ 
+            height: {
+                xs: '100px', // Smaller width on xs screens
+                md: '120px', // Default size on large screens
+                }, 
+            display: 'flex',
+            alignItems: 'space-between',
+            justifyContent: 'center',
+            bgcolor: 'white',
+            }}>
 
-        {/* Desktop Links */}
-        {!isMobile &&
-          menuLinks.map((link) => (
-            <Button
-              key={link.label}
-              color="inherit"
-              onClick={() => scrollToSection(link.id)}
-            >
-              {link.label}
-            </Button>
-          ))}
-
-        {/* CTA Button */}
-        {!isMobile && (
-          <Button
-            variant="contained"
-            color="secondary"
-            sx={{ marginLeft: '1rem' }}
-            onClick={() => scrollToSection('contact-section')}
-          >
-            Place an Order
-          </Button>
-        )}
-
-        {/* Mobile Menu */}
-        {isMobile && (
-          <>
+        <Container maxWidth="md">
+            <Toolbar>
+            {/* Logo */}
+                <Box
+                    onClick={() => scrollToSection('hero-section')}
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        textDecoration: 'none',
+                        color: 'inherit',
+                        cursor: 'pointer',
+                        mr: "auto",
+                        img: {
+                            width: {
+                            xs: '250px', // Smaller width on xs screens
+                            md: '300px', // Default size on large screens
+                            },
+                            minWidth: '200px',
+                            height: 'auto', // Maintain aspect ratio
+                        },
+                        // flexGrow: 0,
+                    }}
+                    >
+                    <Image
+                        src="/images/placeholder-logo.svg" 
+                        alt="ETIBuild Logo"
+                        width={300} // Set appropriate width for the logo
+                        height={100} // Set appropriate height for the logo
+                        priority // Ensures the logo loads quickly
+                    />
+                </Box>
             <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleMenuOpen}
+                color="primary"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 2, display: { sm: 'none' } }}
             >
-              <MenuIcon />
+                <MenuIcon sx={{ fontWeight: 'bold', fontSize: '2rem' }} />
             </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-            >
-              {menuLinks.map((link) => (
-                <MenuItem
-                  key={link.label}
-                  onClick={() => scrollToSection(link.id)}
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Button
+                    variant="contained"
+                    size="large" 
+                    color="secondary"
+                    sx={{ marginLeft: '1rem' }}
+                    onClick={() => scrollToSection('contact-section')}
                 >
-                  {link.label}
-                </MenuItem>
-              ))}
-              <MenuItem onClick={() => scrollToSection('contact-section')}>
-              Place an Order
-              </MenuItem>
-            </Menu>
-          </>
-        )}
-      </Toolbar>
-    </AppBar>
+                    Contact Us
+                </Button>
+            </Box>
+            </Toolbar>
+        </Container>
+      </AppBar>
+      <nav>
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+    </Box>
   );
-};
-
-export default NavBar;
+}
