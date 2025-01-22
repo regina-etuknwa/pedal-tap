@@ -19,7 +19,10 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({header}) => {
             color: "white",
             py: theme => theme.spacing(1),
             px: theme => theme.spacing(2),
-            typography: theme => theme.typography.h4,
+            typography: {
+              xs: "h6",
+              md: "h4"
+            },
     }} >
         {header}
     </Paper>

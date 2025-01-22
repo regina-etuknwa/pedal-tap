@@ -88,8 +88,8 @@ const HeroSection: React.FC<SectionProps> = ({ id }) => {
             variant="contained" 
             color="primary" 
             size="large" 
-            sx={{ mt: "1rem" }}>
-            BUY NOW
+            sx={{ mt: "1rem", textTransform: "none", }}>
+            BUY Pedal tap NOW
 
             {/* how should i work?? */}
           </Button>
