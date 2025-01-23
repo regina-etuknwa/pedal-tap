@@ -1,4 +1,4 @@
-import { Paper } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 type SectionHeaderProps = {
     header: string;
@@ -6,25 +6,24 @@ type SectionHeaderProps = {
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({header}) => {
   return (
-    <Paper 
-        square 
+    <Box
         sx={{
-            display: 'flex',                   
-            justifyContent: 'center',          
-            alignItems: 'center',              
-            width: 'fit-content',              
-            height: 'fit-content',  
-            textAlign: 'center',
-            bgcolor: 'black',
-            color: "white",
-            py: theme => theme.spacing(1),
-            px: theme => theme.spacing(2),
-            typography: {
-              xs: "h6",
-              md: "h4"
-            },
-    }} >
-        {header}
-    </Paper>
+          height: "20vh",
+          // backgroundImage: "url('/images/hero-background.jpg')",
+          // backgroundSize: "cover",
+          // backgroundPosition: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "black",
+          textAlign: "center",
+          // p: 3,
+        }}
+      >
+        <Typography variant='h3' sx={{ mt: 1, }}>
+          {header}
+        </Typography>
+      </Box>
   )
 }
+

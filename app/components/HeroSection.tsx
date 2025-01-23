@@ -13,12 +13,12 @@ const HeroSection: React.FC<SectionProps> = ({ id }) => {
         backgroundImage: 'url(/images/placeholder-tap.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         color: '#fff',
-        textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
         padding: '0 1rem',
       }}
     >
