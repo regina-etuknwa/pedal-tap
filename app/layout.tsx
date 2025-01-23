@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pedal tap",
+  title: "EtiBuild",
   description: "The amazing new Pedal tap",
 };
 
