@@ -63,25 +63,6 @@ const AboutPedalTapSection: React.FC<SectionProps> = ({ id }) => {
             </Container>
         </Box>
 
-        {/* <Box 
-            sx={{ 
-                py: 5, 
-                px: 3, 
-                textAlign: "center", 
-                maxWidth: "800px", 
-                mx: "auto",
-            }}>
-            
-                <Typography variant="h5" gutterBottom>
-                What is Pedal tap?
-                </Typography>
-                <Typography variant="body1">
-                Pedal tap is an innovative hands-free water tap that prioritizes hygiene and water conservation. Designed to
-                meet the needs of schools, hospitals, homes, and public spaces, it’s durable, easy to use, and highly
-                efficient.
-                </Typography>
-        </Box> */}
-
         <Container maxWidth="lg">
         {/* Features Section */}
         <Box sx={{ py: 5, px: 3 }}>
@@ -115,20 +96,32 @@ const AboutPedalTapSection: React.FC<SectionProps> = ({ id }) => {
             See the Pedal Tap in Action
             </Typography>
             <Grid2 container spacing={4} justifyContent="center">
-            <Grid2 size="grow">
+            <Grid2 size={{ xs: 12, sm:6, md: 3 }}>
                 <Box
                 component="img"
                 src="/images/placeholder-1.jpg"
                 alt="Pedal Tap Image 1"
-                sx={{ width: "100%", borderRadius: "8px", height: "100%", }}
+                sx={{ 
+                    width: "100%", 
+                    maxWidth: "400px",
+                    borderRadius: "8px", 
+                    height: "100%",
+                    mx: "auto",
+                 }}
                 />
             </Grid2>
-            <Grid2 size="grow">
+            <Grid2 size={{ xs: 12, sm:6, md: 3 }}>
                 <Box
                 component="img"
                 src="/images/placeholder-2.jpg"
                 alt="Pedal Tap Image 2"
-                sx={{ width: "100%", borderRadius: "8px", height: "100%", }}
+                sx={{ 
+                    width: "100%", 
+                    maxWidth: "400px",
+                    borderRadius: "8px", 
+                    height: "100%",
+                    mx: "auto",
+                 }}
                 />
             </Grid2>
             </Grid2>
