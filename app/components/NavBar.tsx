@@ -51,14 +51,14 @@ export default function NavBar({ window }: { window?: () => Window }) {
         }}
         >
         <Image
-            src="/images/placeholder-logo.svg" 
+            src="/images/etibuild-full-logo.png" 
             alt="ETIBuild Logo"
-            width={210} // Set appropriate width for the logo
-            height={70} // Set appropriate height for the logo
+            width={300} // Set appropriate width for the logo
+            height={300} // Set appropriate height for the logo
             priority // Ensures the logo loads quickly
         />
         </Box>
-      <Divider sx={{ my: "1rem" }} />
+      <Divider sx={{ my: "0.5rem" }} />
 
       <List>
         {navItems.map((item) => (
@@ -91,10 +91,7 @@ export default function NavBar({ window }: { window?: () => Window }) {
         color="primary" 
         component="nav"
         sx={{ 
-            height: {
-                xs: '100px', // Smaller width on xs screens
-                md: '120px', // Default size on large screens
-                }, 
+            height: '140px', 
             display: 'flex',
             alignItems: 'space-between',
             justifyContent: 'center',
@@ -113,23 +110,25 @@ export default function NavBar({ window }: { window?: () => Window }) {
                         color: 'inherit',
                         cursor: 'pointer',
                         mr: "auto",
+                        maxWidth: '250px', // Restrict the container's maximum width
+                        width: '100%', // Ensure it scales responsively
                         img: {
-                            width: {
-                            xs: '250px', // Smaller width on xs screens
-                            md: '300px', // Default size on large screens
-                            },
-                            minWidth: '200px',
-                            height: 'auto', // Maintain aspect ratio
+                          width: '100%', // Make the image responsive
+                          height: 'auto', // Maintain aspect ratio
                         },
-                        // flexGrow: 0,
                     }}
                     >
                     <Image
-                        src="/images/placeholder-logo.svg" 
+                        src="/images/etibuild-logo.png" 
                         alt="ETIBuild Logo"
-                        width={300} // Set appropriate width for the logo
+                        width={250} // Set appropriate width for the logo
                         height={100} // Set appropriate height for the logo
                         priority // Ensures the logo loads quickly
+                        style={{
+                          objectFit: 'contain', // Prevents stretching and maintains aspect ratio
+                          maxWidth: '100%', // Ensure the image stays within its container
+                          height: '100%',
+                        }}
                     />
                 </Box>
             <IconButton
@@ -141,7 +140,7 @@ export default function NavBar({ window }: { window?: () => Window }) {
             >
                 <MenuIcon sx={{ fontWeight: 'bold', fontSize: '2rem' }} />
             </IconButton>
-            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+            <Box sx={{ mt: 2, display: { xs: 'none', sm: 'flex' } }}>
               <Button
                     variant="contained"
                     size="large" 

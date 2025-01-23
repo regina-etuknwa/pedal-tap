@@ -33,12 +33,7 @@ export default function RootLayout({
         <ThemeRegistry>
           <NavBar />
           <Box component="main"  >
-            <Toolbar 
-              sx={{height: {
-                xs: '100px', // Smaller width on xs screens
-                md: '120px', // Default size on large screens
-                },
-              }} />
+            <Toolbar sx={{height: "140px", }} />
             {children}
           </Box>
         </ThemeRegistry>
