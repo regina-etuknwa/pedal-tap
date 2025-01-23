@@ -7,13 +7,19 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import Image from 'next/image';
 import { Container } from '@mui/material';
 
 const drawerWidth = 240;
+const navItems = ["Buy a Pedal tap", "Work with us"];
 
 export default function NavBar({ window }: { window?: () => Window }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -53,14 +59,25 @@ export default function NavBar({ window }: { window?: () => Window }) {
         />
         </Box>
       <Divider sx={{ my: "1rem" }} />
-      <Button
+
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: 'right' }}>
+              <ListItemText primary={item} />
+              <ChevronRightIcon sx={{ color: theme => theme.palette.secondary.main }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      {/* <Button
             variant="outlined"
             size="large" 
             color="secondary"
             onClick={() => scrollToSection('contact-us-section')}
         >
             Contact Us
-        </Button>
+        </Button> */}
     </Box>
   );
 
