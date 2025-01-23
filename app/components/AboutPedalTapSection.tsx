@@ -4,7 +4,6 @@ import { SectionProps } from '../types';
 import { SectionHeader } from './SectionHeader';
 import { Box, Typography, Grid2, Button, Container, useTheme} from "@mui/material";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import BuildIcon from "@mui/icons-material/Build";
 import DoNotTouchIcon from "@mui/icons-material/DoNotTouch";
 import EcoIcon from "@mui/icons-material/AccessibilityNew";
@@ -44,24 +43,22 @@ const AboutPedalTapSection: React.FC<SectionProps> = ({ id }) => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
                 zIndex: 1,
                 }}
             />
 
             <Container 
-                maxWidth="lg" 
+                maxWidth="xs" 
                 sx={{
                     position: 'relative',
                     zIndex: 2, // Ensure content is above the overlay
                     }}>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" sx={{ fontSize: "1.5rem", }} gutterBottom>
                 What is Pedal tap?
                 </Typography>
-                <Typography variant="body1">
-                Pedal tap is an innovative hands-free water tap that prioritizes hygiene and water conservation. Designed to
-                meet the needs of schools, hospitals, homes, and public spaces, it’s durable, easy to use, and highly
-                efficient.
+                <Typography variant="body1" sx={{ fontSize: "1.25rem", }}>
+                Pedal tap is an innovative hands-free water tap that prioritizes hygiene and water conservation. 
                 </Typography>
             </Container>
         </Box>
@@ -107,7 +104,6 @@ const AboutPedalTapSection: React.FC<SectionProps> = ({ id }) => {
             <Grid2 container spacing={4}>
                 <BenefitCard Icon={WaterDropIcon} header='Saves Water' body='Reduce water usage by up to 30% with our efficient design.' />
                 <BenefitCard Icon={AttachMoneyIcon} header='Saves Cost' body='Save money by reducing water bills and maintenance costs.' />
-                <BenefitCard Icon={AccessibilityNewIcon} header='User-friendly' body='Easy to use with a hands-free design that ensures convenience.' />
                 <BenefitCard Icon={EcoIcon} header='Sustainabile' body='Promote environmental responsibility with our eco-friendly product.' />
                 {/* Add more benefits as needed */}
             </Grid2>
