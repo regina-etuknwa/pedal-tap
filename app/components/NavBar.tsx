@@ -62,8 +62,8 @@ export default function NavBar({ window }: { window?: () => Window }) {
 
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'right' }}>
+          <ListItem key={item} disablePadding >
+            <ListItemButton sx={{ textAlign: 'right' }} onClick={() => scrollToSection('contact-us-section') }>
               <ListItemText primary={item} />
               <ChevronRightIcon sx={{ color: theme => theme.palette.secondary.main }} />
             </ListItemButton>
@@ -141,15 +141,24 @@ export default function NavBar({ window }: { window?: () => Window }) {
             >
                 <MenuIcon sx={{ fontWeight: 'bold', fontSize: '2rem' }} />
             </IconButton>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Button
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+              <Button
                     variant="contained"
                     size="large" 
                     color="secondary"
-                    sx={{ marginLeft: '1rem' }}
+                    sx={{ marginLeft: '1rem', textTransform: "none", }}
                     onClick={() => scrollToSection('contact-us-section')}
                 >
-                    Contact Us
+                    Buy a Pedal tap
+                </Button>
+              <Button
+                    variant="outlined"
+                    size="large" 
+                    color="secondary"
+                    sx={{ marginLeft: '1rem',textTransform: "none", }}
+                    onClick={() => scrollToSection('contact-us-section')}
+                >
+                    Work with Us
                 </Button>
             </Box>
             </Toolbar>
