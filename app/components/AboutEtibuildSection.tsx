@@ -2,21 +2,18 @@
 
 import { SectionProps } from '../types';
 import { SectionHeader } from './SectionHeader';
-import { Box, Typography, Grid2, Button, styled, Paper, Container} from "@mui/material";
-// import { useTheme } from "@mui/material";
-import Image from 'next/image';
+import { Box, Typography, Grid2, Button, Container} from "@mui/material";
 import TeamMemberCard from './TeamMemberCard';
 
 import { scrollToSection } from '../../utils/scrollUtils';
 
 
 const AboutEtibuildSection: React.FC<SectionProps> = ({ id }) => {
-//   const theme = useTheme();
 
   return (
     <Box 
         sx={{ 
-            py: 6, // Vertical padding for breathing space
+            py: 6,
             px: 2,
             bgcolor: theme => theme.palette.background.default
         }} 
@@ -32,7 +29,7 @@ const AboutEtibuildSection: React.FC<SectionProps> = ({ id }) => {
             sx={{
                 textAlign: "center",
                 color: (theme) => theme.palette.text.secondary,
-                mb: 4, // Bottom margin for spacing
+                mb: 4,
                 lineHeight: 1.7,
             }}
             >
@@ -81,7 +78,7 @@ const AboutEtibuildSection: React.FC<SectionProps> = ({ id }) => {
                     Meet Our Team
                 </Typography>
                 <Grid2 container spacing={4} justifyContent="center">
-                    <Grid2 size={{xs: 12, md:6, sm:4}}>
+                    <Grid2 size={{xs: 12, sm:6, md:4}}>
                         <TeamMemberCard
                             name="John Doe"
                             role="Founder & CEO"
@@ -89,7 +86,7 @@ const AboutEtibuildSection: React.FC<SectionProps> = ({ id }) => {
                             img="/images/placeholder-1.jpg"
                         />
                     </Grid2>
-                    <Grid2 size={{xs: 12, md:6, sm:4}}>
+                    <Grid2 size={{xs: 12, sm:6, md:4}}>
                         <TeamMemberCard
                             name="Jane Smith"
                             role="Lead Designer"
@@ -97,7 +94,7 @@ const AboutEtibuildSection: React.FC<SectionProps> = ({ id }) => {
                             img="/images/placeholder-1.jpg"
                         />
                     </Grid2>
-                    <Grid2 size={{xs: 12, md:6, sm:4}}>
+                    <Grid2 size={{xs: 12, sm:6, md:4}}>
                         <TeamMemberCard
                             name="Mike Johnson"
                             role="Product Developer"

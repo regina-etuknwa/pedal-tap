@@ -1,9 +1,7 @@
-import { Box, Grid2, Paper, Typography } from "@mui/material";
-// import { SvgIconProps } from "@mui/material/SvgIcon";
+import { Box, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 
 interface TeamMemberCardProps {
-    // Icon: React.ComponentType<SvgIconProps>;
     name: string;
     role: string;
     alt: string;
@@ -42,22 +40,22 @@ interface TeamMemberCardProps {
                 }}
                 >
                 <Image
-                src={img}
-                alt={alt}
-                width={150}
-                height={150}
-                style={{
-                    objectFit: "cover",
-                    objectPosition: "center",
-                }}
-                />
+                    src={img}
+                    alt={alt}
+                    width={150}
+                    height={150}
+                    style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                    }}
+                    />
             </Box>
             <Typography
                 variant="h6"
                 sx={{
-                color: theme => theme.palette.primary.main,
-                fontWeight: "bold",
-                mb: "0.5rem",
+                    color: theme => theme.palette.primary.main,
+                    fontWeight: "bold",
+                    mb: "0.5rem",
                 }}
             >
                 {name}
@@ -65,13 +63,13 @@ interface TeamMemberCardProps {
             <Typography
                 variant="body2"
                 sx={{
-                color: "#666", // Softer color for secondary text
-                fontStyle: "italic", // Make the role italicized for a stylistic touch
+                    color: "#666",
+                    fontStyle: "italic",
                 }}
             >
                 {role}
             </Typography>
-</Paper>
+        </Paper>
 
     );
   };
