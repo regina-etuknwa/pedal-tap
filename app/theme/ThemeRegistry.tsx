@@ -9,15 +9,13 @@ const theme = createTheme({
   palette: {
     primary: {
         main: '#943b12', // dark brown
-        // main: '#663300', // walnut brown
      },
      secondary: {
-        main: '#f58802', 
-        // main: '#cc6633', //redbrown
+        main: '#f58802', //orange
       },
-    // background: {
-    //   default: '#f5f5f5',
-    // },
+    background: {
+      default: '#f4f4f4',
+    },
   },
   typography: {
     fontFamily: '"Roboto", "Arial", sans-serif',

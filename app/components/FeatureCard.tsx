@@ -25,7 +25,7 @@ interface FeatureCardProps {
             <Icon 
               sx={{ 
                 fontSize: 50, 
-                color: theme => theme.palette.primary.main 
+                color: theme => theme.palette.primary.main,
                 }} />
             <Typography variant="h6" mt={2}>
               {header}
