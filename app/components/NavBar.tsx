@@ -18,6 +18,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Image from 'next/image';
 import { Container } from '@mui/material';
 
+import { scrollToSection } from '../../utils/scrollUtils';
+
 const drawerWidth = 240;
 const navItems = ["Buy a Pedal tap", "Work with us"];
 
@@ -28,12 +30,12 @@ export default function NavBar({ window }: { window?: () => Window }) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const scrollToSection = (id: string) => {
+  //   const section = document.getElementById(id);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
