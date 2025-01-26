@@ -3,8 +3,61 @@
 import { SectionProps } from '../types';
 import { Box, Typography, TextField, Button, Grid2, Container, Divider } from '@mui/material';
 import Image from 'next/image';
+import { useState, ChangeEvent, FormEvent  } from 'react';
+// import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
+
+
+interface FormData {
+    name: string;
+    email: string;
+    message: string;
+  }
 
 const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
+
+    const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" });
+    const [status, setStatus] = useState<string>("");
+    const [formLoading, setFormLoading] = useState<boolean>(false);
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+
+        if (status) {
+            setStatus("");
+          }
+      };
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("Sending...");
+        setFormLoading(true);
+
+        try {
+            const res = await fetch("https://formspree.io/f/xrbeeaga", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                setStatus("Message sent successfully!");
+                setFormData({ name: "", email: "", message: "" }); // Reset the form
+            } else {
+                setStatus("Failed to send. Please try again.");
+            }
+        } catch (error) {
+            setStatus("An error occurred. Please try again.");
+            console.error("Error submitting the form:", error);
+        } finally {
+            setFormLoading(false);
+        }
+    };
+    
+
   return (
     <Box 
       id={id}
@@ -38,6 +91,7 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
             </Typography>
             <Box
               component="form"
+              onSubmit={handleSubmit}
               sx={{
                 mt: 3,
                 display: 'flex',
@@ -47,6 +101,9 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
             >
               <TextField 
                 label="Your Name" 
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 variant="filled" 
                 fullWidth 
                 required 
@@ -65,10 +122,13 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
               />
               <TextField 
                 label="Your Email" 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 variant="filled" 
                 fullWidth 
                 required 
-                type="email" 
                 slotProps={{
                   input: {
                     style: { color: '#fff' },
@@ -84,6 +144,9 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
               />
               <TextField 
                 label="Your Message" 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 variant="filled" 
                 fullWidth 
                 multiline 
@@ -104,6 +167,9 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
               />
               <Button 
                 variant="outlined" 
+                endIcon={<SendIcon />}
+                loading={formLoading}
+                loadingPosition="end"
                 size="large" 
                 type="submit" 
                 sx={{ 
@@ -115,6 +181,13 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
               >
                 Send Message
               </Button>
+              <Typography
+                variant="body2"
+                textAlign="center"
+                color={status.includes("success") ? "white" : "red"}
+            >
+                {status}
+            </Typography>
             </Box>
           </Grid2>
 
