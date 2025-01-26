@@ -138,7 +138,7 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
               Phone:
             </Typography>
             <Typography variant="body1" gutterBottom>
-              +123 456 7890
+              +234 705 551 6338
             </Typography>
             <Divider sx={{ my: 2, borderColor: '#fff' }} />
             <Typography 
@@ -149,18 +149,7 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
               Email:
             </Typography>
             <Typography variant="body1" gutterBottom>
-              contact@etibuild.com
-            </Typography>
-            <Divider sx={{ my: 2, borderColor: '#fff' }} />
-            <Typography 
-              variant="body1" 
-              gutterBottom 
-              sx={{ fontWeight: 'bold' }}
-            >
-              Address:
-            </Typography>
-            <Typography variant="body1">
-              123 EtiBuild Lane, Building City, BC 45678
+              info@etibuild.com
             </Typography>
           </Grid2>
         </Grid2>
@@ -184,3 +173,4 @@ const ContactUsSection: React.FC<SectionProps> = ({ id }) => {
 };
 
 export default ContactUsSection;
+

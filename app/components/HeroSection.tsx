@@ -46,27 +46,38 @@ const HeroSection: React.FC<SectionProps> = ({ id }) => {
         <Container maxWidth="lg">
           <Typography 
               variant="h2" 
-              gutterBottom sx={{
-              fontSize: { xs: '2rem', sm: '3rem', }, // Responsive font sizes
-            }}>
-            The assured {' '}
-              <Box
-                component="span"
-                sx={{
-                  color: 'secondary.main', // Use a theme color
-                  fontWeight: 'bold',    // Optionally make it bold
-                }}
-              >
-                hygiene
-              </Box>{' '}
+              gutterBottom 
+              sx={{
+                fontSize: { xs: '2rem', sm: '3rem' }, // Responsive font sizes
+              }}
+          >
+            The assured{' '}
+            <Box
+              component="span"
+              sx={{
+                color: 'secondary.main', // Use a theme color
+                fontWeight: 'bold',    // Optionally make it bold
+              }}
+            >
+              hygiene
+            </Box>{' '}
             of hands-free for you.
           </Typography>
           <Typography 
               variant="h2" 
-              gutterBottom sx={{
-              fontSize: { xs: '2rem', sm: '3rem', }, // Responsive font sizes
-            }}>
-            Plus massive  {' '}
+              gutterBottom 
+              sx={{
+                fontSize: { xs: '2rem', sm: '3rem' }, // Responsive font sizes
+              }}
+          >
+            Plus massive{' '}
+            <Box
+              component="span"
+              sx={{
+                display: { xs: 'block', sm: 'block', md: 'inline' }, // Break on xs/sm, inline on md+
+                whiteSpace: 'nowrap', // Prevent "too!" from wrapping
+              }}
+            >
               <Box
                 component="span"
                 sx={{
@@ -75,8 +86,9 @@ const HeroSection: React.FC<SectionProps> = ({ id }) => {
                 }}
               >
                 water savings
-              </Box>{' '} 
+              </Box>{' '}
               too!
+            </Box>
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             Sleek and fun, for all your sinks - old and new;
@@ -88,12 +100,10 @@ const HeroSection: React.FC<SectionProps> = ({ id }) => {
             variant="contained" 
             color="primary" 
             size="large" 
-            sx={{ mt: "1rem", textTransform: "none", }}>
+            sx={{ mt: "1rem", textTransform: "none" }}
+          >
             BUY Pedal tap NOW
-
-            {/* how should i work?? */}
           </Button>
-
         </Container>
       </Box>
     </Box>
